@@ -5,8 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+require('./db.js');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var datacontroller = require('./routes/datacontroller');
 
 var app = express();
 
@@ -27,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'css')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/datacontroller', datacontroller);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,7 +63,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-require('./db.js');
 
 app.listen(3000, function(){
   console.log("Listening on 3000!");
