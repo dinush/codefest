@@ -26,7 +26,8 @@ var Schema = mongoose.Schema;
 
 var BlinkData = new Schema({	
 	user_id : String,
-	course_id: String	
+	course_id: String,	
+	blink_rate: Number
 });
 
 mongoose.model('Data', BlinkData);
