@@ -21,8 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'app/bower_components')));
+app.use(express.static(path.join(__dirname, 'fonts')));
 app.use(express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, 'css')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -58,6 +59,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+require('./db.js');
 
 app.listen(3000, function(){
   console.log("Listening on 3000!");

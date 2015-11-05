@@ -1,5 +1,5 @@
 doctype html
-html(lang="en", ng-app="noteApp")
+html(lang="en")
   head
     meta(http-equiv="content-type", content="text/html; charset=UTF-8")
     meta(charset="utf-8")
@@ -7,7 +7,7 @@ html(lang="en", ng-app="noteApp")
     meta(name="generator", content="Bootply")
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
     link(href="bootstrap.min.css", rel="stylesheet")
-    // <link rel="stylesheet" href="css/font-awesome.min.css">
+    // <link rel="stylesheet" href="font-awesome.min.css">
     // <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css", rel="stylesheet")
     //if lt IE 9
@@ -15,121 +15,10 @@ html(lang="en", ng-app="noteApp")
     link(href="styles.css", rel="stylesheet")
     script(src="angular.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js")
-    script(src="webcomponentsjs/webcomponents-lite.min.js")
     script(src="bootstrap.min.js")
+    script(src="tracking-min.js")
     script(src="scripts.js")
-    link(href="paper-card/paper-card.html", rel="import")
-  body(ng-controller="mainCtrl")
-    nav.navbar.navbar-fixed-top.header
-      .col-md-12
-        // dont remove
-        .navbar-header
-          a.navbar-brand(href="#") Notes+
-          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-collapse1")
-            i.glyphicon.glyphicon-search
-        #navbar-collapse1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href="", target="_ext") Notes+
-            li
-              a.dropdown-toggle(href="#", data-toggle="dropdown")
-                i.glyphicon.glyphicon-bell
-            li
-              a(href="#")
-                i.glyphicon.glyphicon-user
-        paper-card(heading="Card Title")
-          .card-content Some content
-          .card-actions
-            paper-button Some action
-    #subnav.navbar.navbar-default
-      .col-md-12
-        .navbar-header
-          a.navbar-btn.btn.btn-default.btn-plus.dropdown-toggle(href="#", style="margin-left:15px;", data-toggle="dropdown")
-            i.glyphicon.glyphicon-home(style="color:#dd1111;")
-            | Home
-            small
-              i.glyphicon.glyphicon-chevron-down
-          ul.nav.dropdown-menu
-            li
-              a(href="#")
-                i.glyphicon.glyphicon-user(style="color:#1111dd;")
-                | Profile
-            li
-              a(href="#")
-                i.glyphicon.glyphicon-dashboard(style="color:#0000aa;")
-                | Notes
-            li.nav-divider
-            li
-              a(href="#")
-                i.glyphicon.glyphicon-cog(style="color:#dd1111;")
-                | Manage subjects
-          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar-collapse2")
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        #navbar-collapse2.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.active
-              a(href="#") Posts
-            li
-              a(href="#loginModal", role="button", data-toggle="modal") Manage friends
-            li
-              a(href="#aboutModal", role="button", data-toggle="modal") About
-    // main
-    #main.container
-      .row
-        .col-md-4.col-sm-6
-        .col-md-4.col-sm-6
-          .well
-            form.form
-              h4 Add-note
-              .input-group.text-center
-                input.add-input.form-control.input-lg(type="text", placeholder="What is?", ng-model="noteText", ng-model-instant="")
-                span.input-group-btn
-                  button.btn.btn-lg.btn-primary.add-btn(type="button", ng-click="addNote()") OK
-            //
-               <form>
-                              <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
-                              <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button>
-                          </form> 
-          div
-            ul
-              li.well.note-card(ng-repeat="note in notes")
-                // <input type="checkbox" ng-model="note"/>
-                span
-                  | {{note.text}}
-                  i.icon-hand-up.askbtn(title="Request a friend to clarify from lecturer")
-                br
-                span.others {{note.others}}
-        // /row
-        hr
-      hr
-      br
-      .clearfix
-    // /main
-    // login modal
-    #loginModal.modal.fade(tabindex="-1", role="dialog", aria-hidden="true")
-      .modal-dialog
-        .modal-content
-          .modal-header
-            button.close(type="button", data-dismiss="modal", aria-hidden="true") &#215;
-            h2.text-center
-              img.img-circle(src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100")
-              br
-              | Login
-          .modal-body
-            form.form.col-md-12.center-block
-              .form-group
-                input.form-control.input-lg(type="text", placeholder="Email")
-              .form-group
-                input.form-control.input-lg(type="password", placeholder="Password")
-              .form-group
-                button.btn.btn-primary.btn-lg.btn-block Sign In
-                span.pull-right
-                  a(href="#") Register
-                span
-                  a(href="#") Need help?
-          .modal-footer
-            .col-md-12
-              button.btn(data-dismiss="modal", aria-hidden="true") Cancel
+    
+  body
+    video#myVideo(width="400", height="300", preload="", autoplay="", loop="", muted="")
+      script tracker();

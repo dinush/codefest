@@ -1,18 +1,16 @@
-var noteApp = angular.module('noteApp', []);
 
-noteApp.controller('mainCtrl',function($scope){    
-  console.log("somthsd");
+function tracker(){
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
 
-  $scope.notes = [{text:"3rd normal form", others:"Malith, Sisinda and 2 others wants to clarify this"}, {
-    text:"participation constraints", others:"Pasan and Hasanga wants to clarify this"
-  }];
-  
-  
-  $scope.addNote = function () {
-    if ($scope.noteText !== ''){
-      $scope.notes.push({text:$scope.noteText, done:false});
-      $scope.noteText = '';
-    }
-  };
-  
-});
+   colors.on('track', function(event) {
+     if (event.data.length === 0) {
+       // No colors were detected in this frame.
+     } else {
+       event.data.forEach(function(rect) {
+         console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+       });
+     }
+   });
+
+  tracking.track('#myVideo', colors);
+}
