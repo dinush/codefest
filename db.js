@@ -1,4 +1,3 @@
-
 //Establishing connection and configuring db
 
 var mongoose = require('mongoose');
@@ -25,9 +24,10 @@ mongoose.connection.on('disconnected', function(){
 var Schema = mongoose.Schema;
 
 var BlinkData = new Schema({	
-	user_id : String,
+	student_id : String,
 	course_id: String,	
-	blink_rate: Number
+	student_data: [],
+	timestamp : { type : Date, default: Date.now}
 });
 
 mongoose.model('Data', BlinkData);

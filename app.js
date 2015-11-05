@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'css')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/datacontroller', datacontroller);
+app.use('/dc', datacontroller);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
