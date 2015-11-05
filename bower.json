@@ -1,0 +1,23 @@
+{
+  "name": "codefest",
+  "homepage": "https://github.com/hasa93/codefest",
+  "description": "Collaborative learning app",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "paper-card": "PolymerElements/paper-card#~1.0.7"
+  }
+}
